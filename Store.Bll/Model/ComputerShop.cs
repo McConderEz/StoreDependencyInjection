@@ -9,8 +9,33 @@ namespace Store.Bll.Model
 {
     internal class ComputerShop : IShop
     {
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Address { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        private string _name;
+        private string _address;
+
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
+                _name = value;
+            }
+        }
+        public string Address
+        {
+            get => _address;
+            set
+            {
+                if(string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
+                _address = value;
+            }
+        }
 
         public void Add(IProduct product)
         {
@@ -18,6 +43,11 @@ namespace Store.Bll.Model
         }
 
         public IEnumerable<IProduct> GetAllProduct()
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICheck Sell(IProduct product)
         {
             throw new NotImplementedException();
         }

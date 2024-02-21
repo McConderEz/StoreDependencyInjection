@@ -13,5 +13,6 @@ namespace Store.DI
 
         void Add(IProduct product);
         IEnumerable<IProduct> GetAllProduct();
+        ICheck Sell(IProduct product);
     }
 }
